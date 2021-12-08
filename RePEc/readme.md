@@ -1,35 +1,77 @@
 # Notes on RePEc archive 
 
+Original author: David DeRemer (updated 16 Nov. 2021)
+
 ## Key Identifiers and Directories
 
 Archive handle: asx (assigned by RePEc)
 
 Institution handle: gsbnukz (assigned by RePEc)
 
-Archive URL: https://gsb.nu.edu.kz/storage/files/5/RePEc/asx/  (5Oct2021 this needs to be confirmed by Miras)
+Archive URL: https://NUGSB.github.io/RePEc/asx/
+(determined by us: we must notify RePEc to change it)
 
-Series handles: nugsbw (for working papers), nugsbd (for Business Digest). These need to be six characters.
+Series handles (determined by us: must be six characters): 
+nugsbw (for working papers)
+nugsbd (for Business Digest)
 
 ## Overview
 
-The folder RePEc (along with its contents and file structure) must be uploaded to the GSB webserver. The Archive URL must match the URL field in the file RePEc/asx/asxarch.rdf     
+The RePEc archive is presently mirrored on the following shared folder (on David DeRemer's GDrive): https://drive.google.com/drive/folders/12-u-zeLo1yTg3xFLb0we_48n4CYi39bn
 
-General instructions may be found at https://ideas.repec.org/stepbystep.html
+Edits to the archive on GDrive can then be pushed to the github webserver, https://NUGSB.github.io
+I (David DeRemer) will be notified of GDrive updates and push the files to this server.
 
-## Instructions for Updating
+The folder RePEc (along with its contents and file structure) must be uploaded to the webserver. 
 
-For each new working paper or business digest, create a new RDF file matching the previous ones. (e.g. for working paper 2021/02 create the file 2021-02.rdf and complete the metadata fields analogous to 2021-01.rdf)
+## Instructions for regular updates (new materials)
 
-A line should be added to index.html for every new file.
+For each new working paper or business digest, add a new block of metadata to the series RDF file on Google Drive, following the structure of previous entries. 
 
-## Additional Notes and Concerns
+I suggest adding metadata in reverse chronological order and leave a line of white space between blocks.
 
-### By David De Remer, 5Oct2021
+Files must be saved in a simple text format (with extension rdf).
 
-- Once the archive is first ready for the public, inform RePEc by emailing the Archive URL to repec@repec.org . RePEc does not need to be notified again unless the Archive URL changes. 
-- I assumed article handles had to follow file naming restrictions, so I created article handles with dashes (e.g. 2021-01) rather than slashes (2021/01). I believe we can still include slashes in the Number field though of each article.
-- I assumed the URL of the first working paper would be https://gsb.nu.edu.kz/storage/files/5/NUGSB%20Workingpaper/NUGSB_workingpaper_2021_01.pdf   This can be updated in the asx/nugsbw/2021-01.rdf file if the URL is any different. 
-- As I understand, the index.html files are usually necessary to simulate browsing. I added them in case they indeed were. This is discussed here: https://ideas.repec.org/t/httpserver.html
+The series RDF files are 
+Working papers: https://NUGSB.github.io/RePEc/asx/nugsbw/wpdata.rdf
+Business Digest: https://NUGSB.github.io/RePEc/asx/nugsbd/bddata.rdf
+
+For the title and abstract, be careful to use a simple text encoding. This in practice means only straight quotes and apostrophes (no curly quotes or curly apostrophes).
+
+Part of the metadata includes the URL to the paper on the [NUGSB research website](https://gsb.nu.edu.kz/en/faculty-and-research/research). Miras is in charge of uploading papers to the NUGSB research website. This upload should be completed before we submit the RDF files. 
+
+After updates are pushed to our archive server, RePEc should update within 48 hours.  
+
+Links where the RePEc papers can be found include the following:
+
+https://econpapers.repec.org/paper/asxnugsbd/
+https://econpapers.repec.org/paper/asxnugsbw/
+https://ideas.repec.org/s/asx/nugsbd.html
+https://ideas.repec.org/s/asx/nugsbw.html
+
+## More general instructions (not necessary for regular maintenance) 
+
+### Adding more .rdf files
+
+It is possible to add more rdf files to any archive. The key point is that any new rdf files must be added to the index.html file in the same directory. Otherwise the index.html files do not need to be updated. 
+
+### Adding new series
+
+To add a new series,
+* Add a new series to the asxseri.rdf file following the format for the intial two series. 
+* A six-character handle must be created.
+* A subfolder matching the handle should be created containing an rdf file for the new series.
+
+### Changing the metadata server
+
+To change the metadata server, 
+* The new server URL must be entered into asxarch.rdf
+* Upload the whole asx directory structure to the new server
+* RePEc must be notified of the new asx URL at repec@repec.org 
+
+### Further instructions
+
+General RePEc instructions may be found at https://ideas.repec.org/stepbystep.html
 
 
 
